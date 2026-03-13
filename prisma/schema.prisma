@@ -1,0 +1,40 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Game {
+  id                String   @id
+  hostName          String
+  status            String   @default("waiting") // waiting, playing, finished
+  calledNumbers     Int[]
+  lastCalledNumber  Int?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  
+  players Player[]
+  
+  @@map("games")
+}
+
+model Player {
+  id            String  @id
+  name          String
+  gameId        String
+  card          Json    // 5x5 array of numbers
+  markedNumbers Int[]
+  isWinner      Boolean @default(false)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  
+  game Game @relation(fields: [gameId], references: [id], onDelete: Cascade)
+  
+  @@map("players")
+}
