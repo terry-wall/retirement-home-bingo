@@ -1,12 +1,17 @@
 FROM node:20-alpine
 
 ENV DEBIAN_FRONTEND=noninteractive
+ENV NODE_ENV=production
 
 WORKDIR /app
 
+# Clear npm cache and install latest npm
+RUN npm cache clean --force && npm install -g npm@latest
+
 # Copy package files and install dependencies
-COPY package*.json ./
-RUN npm install
+COPY package.json ./
+RUN rm -rf node_modules package-lock.json
+RUN npm install --no-package-lock --legacy-peer-deps
 
 # Copy source code
 COPY . .
