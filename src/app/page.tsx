@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { Game } from '@/types/game'
+import { Game } from '../types/game'
 
 export default function Home() {
   const [games, setGames] = useState<Game[]>([])

@@ -2,12 +2,12 @@
 
 import { useState, useEffect } from 'react'
 import { useParams, useSearchParams } from 'next/navigation'
-import BingoCard from '@/components/BingoCard'
-import GameBoard from '@/components/GameBoard'
-import NumberCaller from '@/components/NumberCaller'
-import PlayersList from '@/components/PlayersList'
-import GameLobby from '@/components/GameLobby'
-import { Game, Player } from '@/types/game'
+import BingoCard from '../../../components/BingoCard'
+import GameBoard from '../../../components/GameBoard'
+import NumberCaller from '../../../components/NumberCaller'
+import PlayersList from '../../../components/PlayersList'
+import GameLobby from '../../../components/GameLobby'
+import { Game, Player } from '../../../types/game'
 import { io, Socket } from 'socket.io-client'
 
 export default function GamePage() {

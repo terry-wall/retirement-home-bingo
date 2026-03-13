@@ -1,6 +1,6 @@
 'use client'
 
-import { Game, Player } from '@/types/game'
+import { Game, Player } from '../types/game'
 
 interface GameLobbyProps {
   game: Game

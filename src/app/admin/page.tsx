@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Game } from '@/types/game'
+import { Game } from '../../types/game'
 
 export default function AdminPage() {
   const [games, setGames] = useState<Game[]>([])
