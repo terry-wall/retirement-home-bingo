@@ -13,7 +13,7 @@ COPY package.json ./
 RUN rm -rf node_modules package-lock.json
 RUN npm install --no-package-lock --legacy-peer-deps
 
-# Copy source code
+# Copy source code and Prisma schema
 COPY . .
 
 # Generate Prisma client
