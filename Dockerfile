@@ -4,9 +4,10 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 WORKDIR /app
 
-# Install dependencies
+# Clear npm cache and install dependencies
 COPY package*.json ./
-RUN npm install
+RUN npm cache clean --force
+RUN npm install --no-package-lock --no-save
 
 # Copy source code
 COPY . .
